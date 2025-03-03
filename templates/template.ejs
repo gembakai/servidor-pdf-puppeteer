@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reporte</title>
-     <style>
-        
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
 
 
@@ -15,7 +14,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: rgb(255, 255, 255);
+    background-color: lightgray;
 
 }
 
@@ -30,7 +29,6 @@ body {
 
     
 }
-
 
 .header {
     width: 100%;
@@ -61,7 +59,437 @@ body {
 }
 
 
-     </style>
+.companydata {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(226, 226, 226);
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px; /* Ajusta según lo necesites */
+    color: #333; /* Color del texto */
+    line-height: 1.5; /* Espaciado entre líneas */
+    padding-left: 20px;
+
+    
+}
+
+
+
+
+
+.companydata p {
+    margin: 0px 0; /* Reduce el espacio entre párrafos */
+    padding: 0; /* Asegura que no haya relleno adicional */
+}
+
+.empresa {
+    font-weight: normal;
+    color: rgb(156, 156, 156);
+    font-size: 1.5rem;
+}
+
+.direccion {
+    font-size: 0.90rem;
+    color: rgb(156, 156, 156);
+}
+
+.telefono {
+    font-size: 0.90rem;
+    color: rgb(156, 156, 156);
+}
+
+.email {
+    font-size: 0.90rem;
+    text-decoration: underline;
+    color: rgb(156, 156, 156);
+}
+
+
+
+.odcdata {
+    width: 45%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(226, 226, 226);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Nunito', sans-serif;
+}
+
+.emision{
+    
+    width: 40%;
+    height: 60%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+.titulo{
+    width: 80%;
+    height: 30%;
+    background-color: rgb(235, 235, 235);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 5px 5px 0 0;
+
+    
+}
+.titulo1{
+    width: 50%;
+    height: 30%;
+    background-color: rgb(225, 55, 55);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 5px 5px 0 0;
+    
+    color: rgb(255, 255, 255);
+    
+}
+
+
+.titulo p{
+    font-size: 0.7rem;
+    color: rgb(93, 93, 93);
+}
+
+.fecha {
+    width: 80%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    outline: 3px solid rgb(219, 219, 219); /* Borde "interno" */
+    outline-offset: -3px; /* Mueve el borde hacia adentro */
+    border-radius: 0 0 5px 5px;
+}
+.tituloconsecutivo {
+    width: 50%;
+    height: 40%;
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    outline: 3px solid rgb(219, 219, 219); /* Borde "interno" */
+    outline-offset: -3px; /* Mueve el borde hacia adentro */
+    border-radius: 0 0 5px 5px;
+}
+
+.fecha p{
+    font-size: 0.8rem;
+    color: rgb(93, 93, 93);
+    padding: 0;
+    margin: 0;
+}
+
+.tituloconsecutivo p{
+    font-size: 1.2rem;
+    color: rgb(152, 152, 152);
+    padding: 0;
+    margin: 0;
+}
+
+.consecutivo{
+    
+    width: 60%;
+    height: 80%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+
+.suplier {
+    width: 100%;
+    height: 3cm;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(226, 226, 226);
+    justify-content: space-evenly; /* Distribuye los divs a lo largo de la altura */
+    /* box-shadow: 0px 5px 10px rgba(206, 206, 206, 0.2); */
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.linea{
+    font-family: 'Nunito', sans-serif;
+    width: auto;
+    height: 15%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    
+
+
+}
+
+
+.part{
+    width: auto;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.sub{
+    width: auto;
+    height: 100%;
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 1rem;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.sub p{
+    font-weight: 900;
+}
+
+.name{
+    width: auto;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 1rem;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.data{
+    width: 100%;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+
+}
+
+.barratitulos{
+    width: 100%;
+    height: 30px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    font-family: 'Nunito', sans-serif;
+    justify-content: space-around;
+}
+
+.lineaodc{
+    width: 100%;
+    max-height: 40px;
+    height: auto;
+    min-height: 30px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    font-family: 'Nunito', sans-serif;
+    justify-content: space-around;
+    box-shadow: 0px 0px 5px rgba(178, 178, 178, 0.2);
+}
+
+
+
+
+.titulobarra1, .titulobarra2, .titulobarra4, .titulobarra5, .titulobarra6{
+    height: 100%;
+    width: 88px;
+    max-width: 50%;
+    background-color: rgb(225, 225, 225);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.titulobarra3{
+    height: 100%;
+    width: 350px;
+    background-color: rgb(225, 225, 225);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.titulobarra1, .titulobarra2, .titulobarra4, .titulobarra5, .titulobarra6, .titulobarra3 p{
+    font-size: 0.8rem;
+    color: rgb(93, 93, 93);
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.datobarra1, .datobarra2, .datobarra4, .datobarra5, .datobarra6{
+    height: 100%;
+    width: 88px;
+    max-width: 50%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.datobarra3{
+    height: 100%;
+    width: 350px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.datobarra1, .datobarra2, .datobarra4, .datobarra5, .datobarra6, .datobarra3 p{
+    font-size: 0.8rem;
+    color: rgb(93, 93, 93);
+    padding: 0;
+    margin: 0;
+}
+
+
+.lineaodc:nth-child(odd) .datobarra1,
+.lineaodc:nth-child(odd) .datobarra2,
+.lineaodc:nth-child(odd) .datobarra3,
+.lineaodc:nth-child(odd) .datobarra4,
+.lineaodc:nth-child(odd) .datobarra5,
+.lineaodc:nth-child(odd) .datobarra6 {
+    background-color: rgb(245, 245, 245);
+
+}
+
+
+.conclusiones{
+    margin-top: 10px;
+    width: 100%;
+    height: 4cm;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.comentarios{
+    width: 60%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(226, 226, 226);
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+}
+
+
+.comentarios p {
+    color: rgb(145, 145, 145);
+padding-top: 5px;
+padding-left: 10px;
+padding-right: 10px;
+padding-bottom: 10px;
+    text-align: justify;
+    text-align-last: left;
+    
+    /* Limita la altura del párrafo */
+    max-height: 100px; /* Ajusta según tu diseño */
+    overflow: hidden;
+}
+
+
+.totales{
+    width: 40%;
+    height: 100%;
+    background-color: rgb(13, 141, 26);
+    display: flex;
+    flex-direction: row;
+}
+
+
+.titulostotales, .valorestotales{
+    width: 50%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+.subtotal, .deducciones,.total, .iva, .grantotal{
+    width: 100%;
+    height: 28px;
+    background-color: rgb(236, 236, 236);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px; /* Ajusta según lo necesites */
+    color: #333; /* Color del texto */
+    border-radius: 4px;
+}
+ .grantotal{
+
+    background-color: rgb(44, 44, 44);
+    color: #ffffff; /* Color del texto */
+    font-weight:bold
+
+}
+
+.subtotalvalor, .deduccionesvalor, .totalvalor, .ivavalor, .grantotalvalor{
+    width: 100%;
+    height: 28px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px; /* Ajusta según lo necesites */
+    color: #333; /* Color del texto */
+    border-radius: 4px;
+    border: 1px solid rgb(217, 217, 217);
+}
+
+.grantotalvalor{
+
+    background-color: rgb(104, 104, 104);
+    color: #ffffff; /* Color del texto */
+    font-weight:bold;
+    border: 0;
+}
+
+    </style>
 </head>
 <body>
 
