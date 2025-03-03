@@ -8,7 +8,8 @@ const puppeteer = require('puppeteer');
 const Queue = require('bull');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
+
 
 // Configuración de Redis con fallback
 const REDIS_URL = process.env.REDIS_URL || 'redis://127.0.0.1:6379';
@@ -29,7 +30,8 @@ pdfQueue.on('error', (err) => {
 app.post('/generate-html', async (req, res) => {
     try {
         const data = req.body;
-        const templatePath = path.join(__dirname, '../templates/template.ejs');
+        const templatePath = path.join(__dirname, 'templates', 'template.ejs');
+
 
         // Verificar si el archivo existe
         if (!fs.existsSync(templatePath)) {
