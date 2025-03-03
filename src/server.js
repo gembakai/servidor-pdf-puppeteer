@@ -83,16 +83,18 @@ pdfQueue.process(2, async (job, done) => { // Procesar 2 PDFs al mismo tiempo
         const html = ejs.render(template, { data });
 
         // Generar el PDF con Puppeteer
-        let browser;
-        try {
-            browser = await puppeteer.launch({
-                args: ['--no-sandbox', '--disable-setuid-sandbox']
-            });
-        } catch (error) {
-            console.error('❌ Error al iniciar Puppeteer:', error);
-            return done(new Error('No se pudo iniciar Puppeteer. Inténtelo más tarde.'));
-        }
-        
+     const browser = await puppeteer.launch({
+    headless: 'new', // Para mejor rendimiento en entornos modernos
+    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || puppeteer.executablePath(),
+    args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',  // Evita problemas en entornos con poca memoria
+        '--disable-gpu', // Render no usa GPU, así que lo desactivamos
+        '--single-process' // Asegura estabilidad en contenedores
+    ]
+});
+
 
 
         const page = await browser.newPage();
