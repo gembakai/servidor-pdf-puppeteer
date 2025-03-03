@@ -9,6 +9,8 @@ const Queue = require('bull');
 
 const app = express();
 const PORT = process.env.PORT;
+app.use(express.static('public'));
+
 
 
 // Configuración de Redis con fallback
