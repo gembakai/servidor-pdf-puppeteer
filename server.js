@@ -30,7 +30,8 @@ pdfQueue.on('error', (err) => {
 app.post('/generate-html', async (req, res) => {
     try {
         const data = req.body;
-        const templatePath = path.join(__dirname, '..', 'templates', 'template.ejs');
+        const templatePath = path.join(__dirname, 'templates', 'template.ejs');
+
 
 
 
@@ -74,7 +75,8 @@ pdfQueue.process(2, async (job, done) => { // Procesar 2 PDFs al mismo tiempo
         console.log(`⚙ Procesando solicitud de PDF (${job.id})...`);
 
         const data = job.data;
-        const templatePath = path.join(__dirname, '..', 'templates', 'template.ejs');
+        const templatePath = path.join(__dirname, 'templates', 'template.ejs');
+
 
         if (!fs.existsSync(templatePath)) {
             console.error('❌ Error: No se encontró el archivo template.ejs');
