@@ -74,13 +74,12 @@ app.post('/generate-pdf', async (req, res) => {
     }
 });
 
-pdfQueue.process(2, async (job, done) => { // Procesar 2 PDFs al mismo tiempo
+pdfQueue.process(1, async (job, done) => { // Procesar 1 PDF a la vez para evitar sobrecarga
     try {
         console.log(`⚙ Procesando solicitud de PDF (${job.id})...`);
 
         const data = job.data;
         const templatePath = path.join(__dirname, 'templates', 'template.ejs');
-
 
         if (!fs.existsSync(templatePath)) {
             console.error('❌ Error: No se encontró el archivo template.ejs');
@@ -91,24 +90,23 @@ pdfQueue.process(2, async (job, done) => { // Procesar 2 PDFs al mismo tiempo
         const template = fs.readFileSync(templatePath, 'utf8');
         const html = ejs.render(template, { data });
 
-        // Generar el PDF con Puppeteer
-     const browser = await puppeteer.launch({
-    headless: 'new', // Para mejor rendimiento en entornos modernos
-    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || puppeteer.executablePath(),
-    args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-dev-shm-usage',  // Evita problemas en entornos con poca memoria
-        '--disable-gpu', // Render no usa GPU, así que lo desactivamos
-        '--single-process' // Asegura estabilidad en contenedores
-    ]
-});
-
-
+        // Lanzar Puppeteer con configuración optimizada
+        const browser = await puppeteer.launch({
+            headless: 'new', // Modo más eficiente
+            executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || puppeteer.executablePath(),
+            args: [
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+                '--disable-dev-shm-usage',  // Evita problemas en entornos con poca memoria
+                '--disable-gpu', // Render no usa GPU, así que lo desactivamos
+                '--single-process' // Asegura estabilidad en contenedores
+            ]
+        });
 
         const page = await browser.newPage();
-        await page.setContent(html, { waitUntil: 'load' });
+        await page.setContent(html, { waitUntil: ['load', 'domcontentloaded', 'networkidle0'] }); // Asegurar carga de CSS y HTML
 
+        // Generar el PDF con configuraciones optimizadas
         const pdfBuffer = await page.pdf({
             format: 'letter',
             printBackground: true,
@@ -135,8 +133,18 @@ pdfQueue.process(2, async (job, done) => { // Procesar 2 PDFs al mismo tiempo
     } catch (error) {
         console.error(`❌ Error generando PDF (${job.id}):`, error);
         done(error);
+    } finally {
+        // Cerrar la conexión con Redis después de procesar cada PDF
+        try {
+            await job.finished();
+            await pdfQueue.close();
+            console.log("🔄 Conexión con Redis cerrada para evitar saturación.");
+        } catch (err) {
+            console.error("❌ Error cerrando conexión con Redis:", err);
+        }
     }
 });
+
 
 
 // Iniciar el servidor
